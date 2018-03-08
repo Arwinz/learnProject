@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<!-- <script src="https://cdn.bootcss.com/angular.js/1.4.6/angular.min.js"></script> -->
+<script src="../lib/angular.js"></script>
+
+<body ng-app="myApp">
+    <div ng-controller="myCtrl">
+        <div ng-bind="myName  | uppercase"></div>
+        <!--uppercase转换成大写-->
+        <div ng-bind="myName  | lowercase"></div>
+        <!--lowercase转换成小写-->
+        <div class="" ng-bind="money | currency : '￥'"> </div>
+        <!--currency 过滤器将数字格式化为货币格式-->
+        <div class="" ng-repeat="v in city | orderBy: fun">
+            <p ng-bind="v.name"></p>
+        </div>
+        <!--orderBy 过滤器根据表达式排列数组-->
+        <div class="" ng-repeat="v in city | orderBy:'-id' | filter : ''">
+            <p ng-bind="v.name" style="color:red;"></p>
+        </div>
+        <!--orderBy 过滤器根据表达式排列数组   默认正序asc,倒序添加-负号-->
+        <!--filter 过滤器根据表达式过滤不包含过滤器中的内容-->
+        <!--自定义注入依赖-->
+        <div class="" ng-bind="myName | aa:true" style="color:blue;">
+            <!--自定义过滤器aa-->
+        </div>
+        <div>{{ 123456789.1232 | number }}</div>
+    </div>
+    <div>
+    	<form name="myForm" novalidate>
+            <input type="text" ng-pattern="/[a-zA-Z]/" ng-minlength="5" required/>
+    	</form>
+    </div>
+    <div class="form-group">
+        <input class="form-control" name="mobile" type="text" ng-model="account.mobile" required ng-pattern="mobileRegx"/>
+        <span class="error" ng-show="registerForm.$submitted && registerForm.mobile.$error.required">*手机号不能为空</span>
+        <span class="error" ng-show="registerForm.$submitted && registerForm.mobile.$error.pattern">*手机号地址不合法</span>
+    </div>
+    <script>
+    angular.module('myApp', [])
+        .controller('myCtrl', function($scope) {
+            $scope.myName = "Dhx";
+            $scope.money = 100;
+            $scope.city = [
+                { "id": "1", "name": "福建" },
+                { "id": "2", "name": "广东" },
+                { "id": "5", "name": "上海" },
+                { "id": "4", "name": "北京" },
+                { "id": "3", "name": "四川" }
+            ];
+            $scope.fun = function(a) {
+                return parseInt(a.id) > 3;
+            };
+            $scope.mobileRegx = "^1(3[0-9]|4[57]|5[0-35-9]|7[01678]|8[0-9])\\d{8}$";
+            $scope.emailRegx = "^[a-z]([a-z0-9]*[-_]?[a-z0-9]+)*@([a-z0-9]*[-_]?[a-z0-9]+)+[\.][a-z]{2,3}([\.][a-z]{2})?$";
+            $scope.pwdRegx = "[a-zA-Z0-9]*";
+        })
+        .filter('aa', function() { //自定义过滤器，aa为自定义过滤名称 ，val为穿参，split("")将val切割成数组，reverse()将数组反转，join("")将数组变成字符串
+            return function(val, para1) {
+                return val.split("").reverse().join("");
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body ng-app="myApp">
+<div ng-controller='MyController'>
+    <input ng-model="person.name" type="text" placeholder="Your name">
+    <h1>Hello {{ person.name }}</h1>
+    <p>{{clock}}</p>
+</div>
+</body>
+<script type="text/javascript" src="./lib/angular.min.js"></script>
+<script type="text/javascript">
+    angular.module("myApp", [])
+        .controller("MyController",
+            function ($scope, $timeout, $rootScope) {
+                $rootScope.person = {
+                    "name": "ss"
+                };
+                var updateClock = function () {
+                    $scope.clock = new Date();
+                    setTimeout(function () {
+                        // updateClock();
+                        $scope.$apply(updateClock);
+                    }, 1000);
+                };
+                updateClock();
+            });
+
+    // function MyController($scope, $timeout) {
+    //     var updateClock = function() {
+    //         $scope.clock = new Date();
+    //     };
+    //     setInterval(function() {
+    //         $scope.$apply(updateClock);
+    //     }, 1000);
+    //     updateClock();
+    // };
+</script>
+
+</html>

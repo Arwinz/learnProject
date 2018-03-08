@@ -1,0 +1,17 @@
+<!doctype html>
+<html ng-app="myApp">
+<head>
+  <title>Parse Expression Example</title>
+  <script src="../lib/angular.js"></script>
+  <script type="text/javascript" src="./test_$parse.js"></script>
+</head>
+<body>
+
+  <div ng-controller="MyController">
+    <input ng-model="expr"
+            type="text"
+            placeholder="Enter an expression" />
+    <div>{{ parsedExpr }}</div>
+  </div>
+  </body>
+</html>

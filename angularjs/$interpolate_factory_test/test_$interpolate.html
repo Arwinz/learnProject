@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="../lib/angular.js"></script>
+<script type="text/javascript" src="./test_$interpolate.js"></script>
+<meta charset=utf-8 />
+<title>JS Bin</title>
+</head>
+<body ng-app="myApp">
+  <div ng-controller="MyController">
+    <input ng-model="to" 
+          type="email" 
+          placeholder="Recipient" />
+    <textarea ng-model="emailBody"></textarea>
+    <pre>{{previewText}}</pre>
+  </div>
+  <input type="text" name="" ng-model="toUpcase">
+  <span>{{toUpcase | currency:'*'}}</span>
+  <p>{{testObj | json}}</p>
+</body>
+</html>
