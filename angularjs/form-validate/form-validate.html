@@ -4,10 +4,11 @@
     <link rel="stylesheet" href="http://cdn.jsdelivr.net/foundation/4.3.2/css/foundation.min.css">
     <!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0-rc.2/angular.js"></script>-->
     <script src="../lib/angular.min.js"></script>
+
 </head>
 <body>
 
-<form name="signup" novalidate ng-submit="signupForm()">
+<form name="signup_form" novalidate ng-submit="signupForm()">
     <fieldset>
         <legend>Signup form</legend>
 
@@ -88,7 +89,7 @@
         <button type="submit" ng-disabled="signup_form.$invalid" class="button radius">Submit</button>
     </fieldset>
 </form>
-
+<script src="form-validate.js"></script>
 
 
 </body>
