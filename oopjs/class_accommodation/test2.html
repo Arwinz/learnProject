@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="Accommodation2.js"></script>
+    <script>
+        var house = new Accommodation();
+        house.lock();
+        console.log(house);
+        console.log(house.getIsLocked());
+        var myhouse = new House();
+        myhouse.unlock();
+        console.log(myhouse);
+        console.log(myhouse.getIsLocked());
+        console.log(house.getIsLocked());
+    </script>
+</head>
+<body>
+
+</body>
+</html>

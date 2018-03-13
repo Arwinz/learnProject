@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="Accommodation.js"></script>
+    <script>
+        var house = new Accommodation({
+            floors: 1,
+            rooms: 10,
+            sharedEntrance: true
+        });
+        house.lock().unlock();
+        console.log(house);
+
+        var myHouse = new House({
+            rooms: 500
+        });
+        myHouse.lock();
+        console.log(myHouse);
+    </script>
+</head>
+<body>
+
+</body>
+</html>
