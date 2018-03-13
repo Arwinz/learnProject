@@ -1,3 +1,6 @@
+/**
+ * 使用闭包的原因是：将公用（静态）、类私有的变量或函数限制在一个类定义作用域中。
+ */
 var Accommodation = (function () {
     function Accommodation() {
     }
