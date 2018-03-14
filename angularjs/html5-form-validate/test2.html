@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<header>
+    <h3>用户注册</h3>
+</header>
+<nav>
+    <span style="color: #666; font-size: 14px">已有账号?</span><a href="#">去登录?</a><p></p><p></p>
+</nav>
+<section>
+    <fieldset>
+        <legend>请正确填写相关信息</legend>
+        <form action="#" method="post" autocomplete="on">
+            <p><span style="letter-spacing: 1.3em">真实姓</span>名：<label><input type="text" required name="name" pattern="[\u4e00-\u9fa5]{2,}"  oninvalid="validatelt(this,'真实姓名必须是中文，且长度不小于2')"/></label></p>
+            <!-- require属性，规定必须在提交之前填写输入域（不能为空）-->
+            <!-- pattern属性，描述了一个正则表达式用于验证 <input> 元素的值-->
+            <!-- required属性，要求该输入域不能为空 -->
+            <p><span style="letter-spacing:6em">昵</span>称：<label><input type="text" placeholder="该昵称用于登录" required name="nichen"/></label></p>
+            <!-- placehokder属性，用于对该输入框的提示内容-->
+            <p><span style="letter-spacing: 1.3em">登录密</span>码：<label><input type="password" pattern="[A-Za-z0-9]{6,30}" name="password" oninvalid="validatelt(this,'密码长度至少为六位，且不能有中文')" /></label></p>
+            <p><span style="letter-spacing: 6em">性</span>别：<label>
+                <input type="radio" name="sex" value="man" />男：</label>
+                <input type="radio" name="sex" value="women"/>女：</label>
+            </p>
+            <p><span style="letter-spacing: 1.3em">出生日</span>期：<label><input type="date" name="birthday" max="2016/7/10" required/></label></p>
+            <p><span style="letter-spacing: 1.3em">电子邮</span>箱：<label><input name="email" type="email" required/></label></p>
+            <p><span style="letter-spacing: 1.3em">联系电</span>话：<label><input name="phone" type="text"  required  pattern="1[34578]\d{9}$"  oninvalid="validatelt(this,'电话号只能是11位的整数')" /></label></p>
+            <p><span>选择你喜欢的颜色：</span><label><input name="color" type="color" required/></label></p>
+            <input type="submit"/>
+        </form>
+    </fieldset>
+</section>
+<footer>
+    <hr/>
+    底部栏
+</footer>
+</body>
+<script>
+    //对悬浮窗的设置
+    function validatelt(inputelement,err){
+        if(inputelement.validity.patternMismatch){
+            inputelement.setCustomValidity(err);
+            //错误后就清空，不过执行顺序有点问题就不要了
+//                if(confirm("输入有误,是否清空此项？")){
+//                    inputelement.value="";
+//                }
+        }else{
+            inputelement.setCustomValidity("");
+            return true;
+        }
+    }
+</script>
+</html>
