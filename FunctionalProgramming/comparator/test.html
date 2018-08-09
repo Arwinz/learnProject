@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../lib/underscore.js"></script>
+</head>
+<body>
+
+</body>
+<script>
+    function comparator(pred) {
+        return function(x, y) {
+            if(pred(x, y)) {
+                return -1;
+            } else if (pred(y, x)) {
+                return 1;
+            } else {
+                return 0;
+            }
+        }
+    }
+    function lessOrEqual(x, y) {
+        return x<=y;
+    }
+    console.log([100, 1, 0, 10, -1, -2, -1].sort(comparator(function(x, y){return !_.isEqual(x, y)})));
+    console.log([100, 1, 0, 10, -1, -2, -1].sort(comparator(lessOrEqual)));
+</script>
+</html>

@@ -1,0 +1,31 @@
+<html>
+<head>
+    <script type="text/javascript">
+        function createNewDoc()
+        {
+            var newDoc=document.open("text/html","replace");
+            window.onload = function() {
+                console.log("window's doc loaded")
+            };
+            newDoc.addEventListener("DOMContentLoaded", function() {
+               console.log("loaded");
+            });
+            var txt="<html><body>Learning about the DOM is FUN!</body></html>";
+            newDoc.writeln(txt);
+            newDoc.close();
+            newDoc=document.open("text/html");
+            txt="<html><body>Learning about the DOM is FUNing!</body></html>";
+            newDoc.write(txt);
+        }
+        // window.onload = function() {
+        //     console.log("window's doc loaded")
+        // }
+    </script>
+</head>
+<body>
+
+<input type="button" value="Write to a new document"
+       onclick="createNewDoc()">
+
+</body>
+</html>

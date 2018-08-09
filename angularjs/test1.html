@@ -6,12 +6,18 @@
     <title>Document</title>
 </head>
 
-<body ng-app="myApp">
-<div ng-controller='MyController'>
-    <input ng-model="person.name" type="text" placeholder="Your name">
-    <h1>Hello {{ person.name }}</h1>
-    <p>{{clock}}</p>
+<body>
+<div>
+    <span>{{person.name}}</span>
 </div>
+<div >
+    <div ng-app="myApp" ng-controller='MyController'>
+        <input ng-model="person.name" type="text" placeholder="Your name">
+        <h1>Hello {{ person.name }}</h1>
+        <p>{{clock}}</p>
+    </div>
+</div>
+
 </body>
 <script type="text/javascript" src="./lib/angular.min.js"></script>
 <script type="text/javascript">
